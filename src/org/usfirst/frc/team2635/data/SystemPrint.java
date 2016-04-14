@@ -6,14 +6,14 @@ package org.usfirst.frc.team2635.data;
  *
  * @param <PrintType>
  */
-public class SystemPrint<PrintType> extends DataProvider<PrintType, PrintType>
+public class SystemPrint<PrintType> extends InputOnlyDataProvider<PrintType>
 {
 
 	@Override
-	protected PrintType calculateData(PrintType inputData)
+	protected Void calculateData(PrintType inputData)
 	{
 		System.out.println(inputData);
-		return inputData;
+		return null;
 	}
 
 }

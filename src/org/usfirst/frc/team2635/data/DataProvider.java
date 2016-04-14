@@ -33,7 +33,7 @@ public abstract class DataProvider<InputType, OutputType>
 	protected abstract OutputType calculateData(InputType inputData);
 
 	/**
-	 * Accesses dataProvider's inputProvider and sets it to {@code this}. This function returns
+	 * This object will now provide its data to the argument {@code dataProvider}. This function returns
 	 * dataProvider, to allow easy chaining of providesTos. For example: 
 	 * <br>
 	 * <br>
@@ -51,7 +51,42 @@ public abstract class DataProvider<InputType, OutputType>
 	 */
 	public <DataProviderOutputType> DataProvider<OutputType, DataProviderOutputType>  providesTo(DataProvider<OutputType, DataProviderOutputType> dataProvider)
 	{
+		
 		dataProvider.setDataProvider(this);
+		return dataProvider;
+	}
+	/**
+	 * Same thing as {@link providesTo}, but returns a reference to the current object. Allows the connection of chains to multiple objects.
+	 * @param dataProvider The DataProvider that the calling object will give data to.
+	 * @return A reference to the current object.
+	 */
+	public <DataProviderOutputType> DataProvider<InputType, OutputType>  providesToAnd(DataProvider<OutputType, DataProviderOutputType> dataProvider)
+	{
+		dataProvider.setDataProvider(this);
+		return this;
+	}
+	/**
+	 * A shorthand for {@link providesToAnd} that allows a DataProvider to provide its chain to multiple other dataProviders.
+	 * The nature of the arguments given means that the chain ends with this method.
+	 * @param dataProviders
+	 */
+	@SuppressWarnings("unchecked") //Trust me, we'll be fine
+	public void providesToMultiple(InputOnlyDataProvider<OutputType>... dataProviders)
+	{
+		for(InputOnlyDataProvider<OutputType> dataProvider : dataProviders)
+		{
+			dataProvider.setDataProvider(this);
+		}
+		
+	}
+	/**
+	 * {@link providesTo}, but in reverse. {@code inputProvider} will now provide its data to this object.
+	 * @param dataProvider The DataProvider that is giving data to the object
+	 * @return A reference to dataProvider
+	 */
+	public <DataProviderInputType> DataProvider<DataProviderInputType, InputType> isProvidedToBy(DataProvider<DataProviderInputType, InputType> dataProvider)
+	{
+		setDataProvider(dataProvider);
 		return dataProvider;
 	}
 	/**
@@ -63,9 +98,16 @@ public abstract class DataProvider<InputType, OutputType>
 	{	
 		if(inputProvider != null)
 		{
+			//Request inputProvider's getData routine, which could call inputProvider's inputProvider's getData routine...
 			return calculateData(inputProvider.getData()); 
 		}
+		//There are no more inputProviders, time to start calculating back down the stack.
 		return calculateData(null);
 	}
+	public DataProvider()
+	{
+		super();
+	}
+	
 	
 }
