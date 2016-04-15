@@ -24,7 +24,14 @@ public abstract class DataProvider<InputType, OutputType>
 	{
 		this.inputProvider = inputProvider;
 	}
-	
+	/**
+	 * Get what is providing the input to the DataProvider.
+	 * @return What is providing the input to the DataProvider
+	 */
+	public DataProvider<?, InputType> getInputProvider()
+	{
+		return inputProvider;
+	}
 	/**
 	 * An operation that occurs on the inputData. 
 	 * @param inputData Data from the DataProvider's inputProvider

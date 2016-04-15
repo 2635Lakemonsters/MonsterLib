@@ -1,6 +1,8 @@
-package org.usfirst.frc.team2635.data;
+package org.usfirst.frc.team2635.data.implementation;
 
 import java.awt.Point;
+
+import org.usfirst.frc.team2635.data.DataProvider;
 
 public class MousePositionY extends DataProvider<Point, Double>
 {

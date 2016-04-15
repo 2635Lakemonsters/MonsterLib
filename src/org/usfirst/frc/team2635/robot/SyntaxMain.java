@@ -1,8 +1,8 @@
 package org.usfirst.frc.team2635.robot;
 
-import org.usfirst.frc.team2635.data.AddConstant;
-import org.usfirst.frc.team2635.data.ConstantProvider;
-import org.usfirst.frc.team2635.data.SystemPrint;
+import org.usfirst.frc.team2635.data.implementation.AddConstant;
+import org.usfirst.frc.team2635.data.implementation.ConstantProvider;
+import org.usfirst.frc.team2635.data.implementation.SystemPrint;
 
 public class SyntaxMain
 {
