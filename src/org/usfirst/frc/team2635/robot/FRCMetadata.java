@@ -36,4 +36,9 @@ public class FRCMetadata
 	{
 		this.alliance = alliance;
 	}
+	public FRCMetadata(Mode mode, Alliance alliance)
+	{
+		this.mode = mode;
+		this.alliance = alliance;
+	}
 }

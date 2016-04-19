@@ -2,7 +2,7 @@ package org.usfirst.frc.team2635.data;
 
 import java.util.List;
 
-public class DataProviderExecutor  
+public class DataProviderExecutor extends D<DataProvider>
 {
 	List<DataProviderThread> threads;
 	class DataProviderThread extends Thread
@@ -51,6 +51,12 @@ public class DataProviderExecutor
 		{
 			thread.stopThread();
 		}
+	}
+	@Override
+	protected Void calculateData(DataProvider inputData)
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
