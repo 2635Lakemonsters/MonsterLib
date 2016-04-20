@@ -83,15 +83,28 @@ public abstract class DataProvider<InputType, OutputType>
 			System.err.println("Providing data provider's output type is incompatible with the input type of dataProvider's first non OutputOnlyDataProvider node.");
 			ex.printStackTrace();
 		}
-		oneBeforeOutputOnly.setDataProvider((DataProvider<?, OutputType>) this);
+		oneBeforeOutputOnly.setDataProvider(this);
 		return dataProvider;
 		
 	}
-	
-	//TODO: Do this.
-	public <DataProviderOutputType> DataProvider<OutputType, DataProviderOutputType> providesToAtTop(DataProvider<OutputType, DataProviderOutputType> dataProvider)
+	/**
+	 * Goes to the top node of the chain, links the node to the providing DataProvider.
+	 * @param dataProvider
+	 * @return
+	 */
+	public <DataProviderOutputType> DataProvider<OutputType, DataProviderOutputType> providesToTop(DataProvider<OutputType, DataProviderOutputType> dataProvider)
 	{
-		Data
+		DataProvider<OutputType, ?> topNode = null;
+		try 
+		{
+			topNode = (DataProvider<OutputType, ?>) dataProvider.getTop();
+		}
+		catch(ClassCastException ex)
+		{
+			//TODO: Add an error message
+		}
+		topNode.setDataProvider(this);
+		return dataProvider;
 	}
 	//TODO: Might want to review naming with someone
 	/**

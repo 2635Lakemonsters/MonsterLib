@@ -14,22 +14,19 @@ public class MathTestMain
 
 	public static void main(String[] args)
 	{
-		//This is the end of the chain. getData() will go up the chain to the first OutputOnlyDataProvider, 
-		//Have it provide data, and then go back down and process data
 		DataProvider<Double, Double> chain; 
 		DataProvider<Double, Double> secondChain;
 		
-		//Setup the chain. The first chain element will provide data to the second element, the second will provide
-		//Data to the third, and so on.
 		chain = new ConstantProvider<Double>(3.0) //Start
 			.providesTo(new SubtractConstant(1.0))
 			.providesTo(new AddConstant(2.0))
 			.providesTo(new SystemPrint<Double>()); //End
+		
 		secondChain = new ConstantProvider<Double>(2.0)
-				.providesTo(new AddConstant(57))
-				.providesTo(new SystemPrint<Double>());
+			.providesTo(new AddConstant(57))
+			.providesTo(new SystemPrint<Double>());
 		DataProvider<Double, Double> thirdChain = chain.providesToReplacesTop(chain);		
-		thirdChain.getData(); //Will print 4
+		thirdChain.getData(); 
 		
 
 	}

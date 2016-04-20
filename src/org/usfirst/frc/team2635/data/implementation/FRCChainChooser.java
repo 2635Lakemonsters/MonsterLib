@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2635.robot;
+package org.usfirst.frc.team2635.data.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ import java.util.Queue;
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.DataProviderExecutor;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
+import org.usfirst.frc.team2635.robot.FRCMetadata;
 import org.usfirst.frc.team2635.robot.FRCMetadata.Mode;
 
 @SuppressWarnings("rawtypes")//We don't care about what type the dataprovider is.
