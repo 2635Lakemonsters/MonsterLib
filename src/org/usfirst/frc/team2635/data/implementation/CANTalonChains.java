@@ -4,6 +4,7 @@ import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Encoder;
 
 public class CANTalonChains
 {
@@ -20,7 +21,7 @@ public class CANTalonChains
 		{
 			return talon.getSpeed();
 		}
-
+		Encoder i;
 	};
 	
 	

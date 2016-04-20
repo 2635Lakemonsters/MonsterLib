@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2635.data.implementation;
+package org.usfirst.frc.team2635.data.implementation.multithread;
 
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.robot.DataProviderThread;

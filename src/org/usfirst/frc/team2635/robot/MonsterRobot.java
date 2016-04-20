@@ -2,9 +2,9 @@ package org.usfirst.frc.team2635.robot;
 
 import java.util.List;
 
+import org.usfirst.frc.team2635.data.ConstantProvider;
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
-import org.usfirst.frc.team2635.data.implementation.ConstantProvider;
 import org.usfirst.frc.team2635.data.implementation.DataProviderRunMultiple;
 import org.usfirst.frc.team2635.data.implementation.FRCChainChooser;
 import org.usfirst.frc.team2635.data.implementation.MetadataMode;

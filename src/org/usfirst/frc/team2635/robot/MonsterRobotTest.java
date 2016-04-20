@@ -3,12 +3,13 @@ package org.usfirst.frc.team2635.robot;
 import java.awt.Point;
 
 import org.usfirst.frc.team2635.data.DataProvider;
-import org.usfirst.frc.team2635.data.implementation.AddConstant;
+import org.usfirst.frc.team2635.data.implementation.CANTalonProvider;
 import org.usfirst.frc.team2635.data.implementation.FRCChainChooser;
 import org.usfirst.frc.team2635.data.implementation.MousePositionProvider;
 import org.usfirst.frc.team2635.data.implementation.PointX;
 import org.usfirst.frc.team2635.data.implementation.PointY;
 import org.usfirst.frc.team2635.data.implementation.SystemPrint;
+import org.usfirst.frc.team2635.data.implementation.math.AddConstant;
 
 public class MonsterRobotTest
 {
@@ -23,14 +24,11 @@ public class MonsterRobotTest
 			@Override
 			public void initEnvironment(FRCChainChooser robotEnvironment)
 			{
-				DataProvider<Point, Double> dummyJoystick1 = 
-						new MousePositionProvider()
-						.providesTo(new PointY());
 				
+						
 				DataProvider<Double, Double> dummyJoystick2 = 
 						new MousePositionProvider()
-						.providesTo(new PointX())
-						.providesTo(new AddConstant(500.0)); //A simulation so advanced it has broken joysticks built in.
+						.providesTo(new PointX());
 				
 				DataProvider<Double, Double> dummyMotor1 = 
 						new SystemPrint<Double>();
