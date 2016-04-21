@@ -6,10 +6,11 @@ import org.usfirst.frc.team2635.data.ConstantProvider;
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
 import org.usfirst.frc.team2635.data.implementation.DataProviderRunMultiple;
-import org.usfirst.frc.team2635.data.implementation.FRCChainChooser;
 import org.usfirst.frc.team2635.data.implementation.MetadataMode;
-import org.usfirst.frc.team2635.robot.FRC.Alliance;
-import org.usfirst.frc.team2635.robot.FRC.Mode;
+import org.usfirst.frc.team2635.data.implementation.frc.FRC;
+import org.usfirst.frc.team2635.data.implementation.frc.FRCChainChooser;
+import org.usfirst.frc.team2635.data.implementation.frc.FRC.Alliance;
+import org.usfirst.frc.team2635.data.implementation.frc.FRC.Mode;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.RobotBase;
@@ -23,18 +24,10 @@ public abstract class MonsterRobot //extends RobotBase
 	public void startCompetition()
 	{
 		initEnvironment(environment);
-		DataProvider<DataProvider[],DataProvider[]> mainChain = new DataProviderRunMultiple();
-		new FRC((FRC frc) -> 
-		{
-			frc.mode.setParameter(Mode.Teleop);
-			
-			frc.mode.providesTo(environment)
-			.providesTo(mainChain);
-
-			
-			frc.alliance.setParameter(Alliance.Blue);
-		});
-				
+		DataProvider<DataProvider[],DataProvider[]> mainChain = new ConstantProvider<Mode>(Mode.Teleop)
+				.providesTo(environment)
+				.providesTo(new DataProviderRunMultiple());
+		
 		mainThread = new DataProviderThread(mainChain);
 		mainThread.start();
 	}

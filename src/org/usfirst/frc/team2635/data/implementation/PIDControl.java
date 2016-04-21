@@ -25,7 +25,6 @@ public class PIDControl extends DataProvider<Double, Double>
 	@Override
 	protected Double calculateData(Double inputData)
 	{
-		
 		double setPoint = setPointParameter.getParameter();
 		
 		double P = PParameter.getParameter();

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2635.data.implementation;
+package org.usfirst.frc.team2635.data.implementation.frc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,6 @@ import java.util.Queue;
 
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
-import org.usfirst.frc.team2635.robot.FRC;
-import org.usfirst.frc.team2635.robot.FRC.Mode;
 
 @SuppressWarnings("rawtypes")//We don't care about what type the dataprovider is.
 public class FRCChainChooser extends DataProvider<FRC.Mode, DataProvider[]>

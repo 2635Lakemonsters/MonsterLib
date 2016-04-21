@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 
 import org.usfirst.frc.team2635.data.ConstantProvider;
 import org.usfirst.frc.team2635.data.DataProvider;
-import org.usfirst.frc.team2635.data.implementation.FRCChainChooser;
+import org.usfirst.frc.team2635.data.implementation.frc.FRCChainChooser;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;

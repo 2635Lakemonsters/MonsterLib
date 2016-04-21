@@ -4,6 +4,8 @@ import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.Parameter;
 import org.usfirst.frc.team2635.data.ParameterSetup;
 
+import edu.wpi.first.wpilibj.hal.CanTalonJNI;
+
 /**
  * 
  * @author Tristan

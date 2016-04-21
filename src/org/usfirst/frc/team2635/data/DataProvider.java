@@ -14,7 +14,7 @@ package org.usfirst.frc.team2635.data;
 public abstract class DataProvider<InputType, OutputType>
 {
 	DataProvider<?, InputType> inputProvider;
-	boolean reportData;
+	OutputType outputtedData;
 	/**
 	 * Set what is providing the input to the DataProvider. It is preferable to use {@link providesTo}, because 
 	 * it makes the code more compact and easier to follow. 
@@ -237,6 +237,10 @@ public abstract class DataProvider<InputType, OutputType>
 		}
 		return currentProvider;
 	}
+	public OutputType getLastOutputted()
+	{
+		return outputtedData;
+	}
 	/**
 	 * Goes to the top of the DataProvider chain and then runs calculateData for every object in that chain, such that the input of one
 	 * data provider feeds into the next. For example, if A is a data provider for B, A will calculate data for B, and B will operate on A's data.
@@ -246,24 +250,24 @@ public abstract class DataProvider<InputType, OutputType>
 	{	
 		if(inputProvider != null)
 		{
-			
 			//Request inputProvider's getData routine, which could call inputProvider's inputProvider's getData routine...
-			return calculateData(inputProvider.getData()); 
+			outputtedData = calculateData(inputProvider.getData()); 	
 		}
-		//There are no more inputProviders, time to start calculating back down the stack.
-		return calculateData(null);
+		else 
+		{
+			//There are no more inputProviders, time to start calculating back down the stack.
+
+			outputtedData = calculateData(null);
+		}
+	
+		
+		return outputtedData;
 	}
 
 	public DataProvider()
 	{
 		super();
-		reportData = false;
-	}
-	public DataProvider(boolean reportData)
-	{
-		//TODO: make this prossible
-		super();
-		this.reportData = reportData;
 	}
 	
+
 }

@@ -2,7 +2,7 @@ package org.usfirst.frc.team2635.data;
 
 public class Parameter<Type> 
 {
-	Type parameter;
+	boolean parameterIsConstant;
 	OutputOnlyDataProvider<Type> parameterProvider = new OutputOnlyDataProvider<Type>()
 	{
 
@@ -17,18 +17,25 @@ public class Parameter<Type>
 	
 	public <DataProviderOutputType> DataProvider<Type, DataProviderOutputType> providesTo(DataProvider<Type, DataProviderOutputType> dataProvider)
 	{
-		dataProvider.setDataProvider(parameterProvider);
+		parameterProvider.providesTo(dataProvider);
 		return dataProvider;
 	}
 	
-	
-	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isConstant()
+	{
+		return parameterIsConstant;
+	}
 	/**
 	 * Set the parameter to be a constant value. 
 	 * @param constant The value that will be provided by parameter.
 	 */
 	public void setParameter(Type constant)
 	{
+		parameterIsConstant = true;
 		parameterGetter = new ConstantProvider<Type>(constant);
 	}
 	/**
@@ -37,6 +44,7 @@ public class Parameter<Type>
 	 */
 	public void setParameter(DataProvider<?, Type> dataProvider)
 	{
+		parameterIsConstant = false;
 		parameterGetter = dataProvider;
 	}
 	/**

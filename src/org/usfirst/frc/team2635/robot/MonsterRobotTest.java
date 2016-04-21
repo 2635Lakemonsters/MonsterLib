@@ -4,11 +4,11 @@ import java.awt.Point;
 
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.implementation.CANTalonProvider;
-import org.usfirst.frc.team2635.data.implementation.FRCChainChooser;
 import org.usfirst.frc.team2635.data.implementation.MousePositionProvider;
 import org.usfirst.frc.team2635.data.implementation.PointX;
 import org.usfirst.frc.team2635.data.implementation.PointY;
 import org.usfirst.frc.team2635.data.implementation.SystemPrint;
+import org.usfirst.frc.team2635.data.implementation.frc.FRCChainChooser;
 
 public class MonsterRobotTest
 {

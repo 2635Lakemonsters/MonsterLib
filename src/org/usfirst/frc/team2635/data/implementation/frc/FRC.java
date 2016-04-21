@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2635.robot;
+package org.usfirst.frc.team2635.data.implementation.frc;
 
 import org.usfirst.frc.team2635.data.Parameter;
 import org.usfirst.frc.team2635.data.ParameterSetup;
@@ -19,12 +19,5 @@ public class FRC
 		Red,
 		Blue
 	}
-	Parameter<Alliance> alliance = new Parameter<>();
-	Parameter<Mode> mode = new Parameter<>();
-	
-	public FRC(ParameterSetup<FRC> setup)
-	{
-		setup.setup(this);
-	}
-	
+
 }
