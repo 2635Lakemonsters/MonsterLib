@@ -1,8 +1,8 @@
 package org.usfirst.frc.team2635.data.implementation.math;
 
 import org.usfirst.frc.team2635.data.DataProvider;
-import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
 import org.usfirst.frc.team2635.data.Parameter;
+import org.usfirst.frc.team2635.data.ParameterSetup;
 
 public class MathOperation extends DataProvider<Double, Double>
 {
@@ -30,9 +30,8 @@ public class MathOperation extends DataProvider<Double, Double>
 		Power,
 	
 	}
-	public Parameter<Operation> operationParameter; 
-	public Parameter<Double> constantParameter;
-
+	public Parameter<Operation> operationParameter = new Parameter<>(); 
+	public Parameter<Double> constantParameter = new Parameter<>();
 
 	
 	private Double _calculateData(Double inputData)
@@ -61,15 +60,13 @@ public class MathOperation extends DataProvider<Double, Double>
 		
 		return _calculateData(inputData);
 	}
-	public MathOperation(Operation operation, Double constant)
+	public MathOperation(ParameterSetup<MathOperation> parameterSetup)
 	{
 		super();
-		this.operationParameter.isSetConstant(operation);
-		this.constantParameter.isSetConstant(constant);
+		
+		parameterSetup.setup(this);
+		
 	}
-	public MathOperation()
-	{
-		super();
-	}
+	
 	
 }

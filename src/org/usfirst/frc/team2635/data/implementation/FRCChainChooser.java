@@ -5,13 +5,12 @@ import java.util.List;
 import java.util.Queue;
 
 import org.usfirst.frc.team2635.data.DataProvider;
-import org.usfirst.frc.team2635.data.DataProviderExecutor;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
-import org.usfirst.frc.team2635.robot.FRCMetadata;
-import org.usfirst.frc.team2635.robot.FRCMetadata.Mode;
+import org.usfirst.frc.team2635.robot.FRC;
+import org.usfirst.frc.team2635.robot.FRC.Mode;
 
 @SuppressWarnings("rawtypes")//We don't care about what type the dataprovider is.
-public class FRCChainChooser extends DataProvider<FRCMetadata.Mode, DataProvider[]>
+public class FRCChainChooser extends DataProvider<FRC.Mode, DataProvider[]>
 {
 	
 	ArrayList<DataProvider> autonomous;
@@ -44,7 +43,7 @@ public class FRCChainChooser extends DataProvider<FRCMetadata.Mode, DataProvider
 	}
 	
 	@Override
-	protected DataProvider[] calculateData(FRCMetadata.Mode gameMode)
+	protected DataProvider[] calculateData(FRC.Mode gameMode)
 	{
 		switch(gameMode)
 		{

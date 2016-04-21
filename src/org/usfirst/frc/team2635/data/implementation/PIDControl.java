@@ -2,37 +2,45 @@ package org.usfirst.frc.team2635.data.implementation;
 
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
+import org.usfirst.frc.team2635.data.Parameter;
+import org.usfirst.frc.team2635.data.ParameterSetup;
 
 import edu.wpi.first.wpilibj.PIDController;
 
 public class PIDControl extends DataProvider<Double, Double>
 {
-	DataProvider<?, Double> setPointProvider;
+	public Parameter<Double> setPointParameter = new Parameter<>();
+	public Parameter<Double> PParameter = new Parameter<>();
+	public Parameter<Double> IParameter = new Parameter<>();
+	public Parameter<Double> DParameter = new Parameter<>();
+	public Parameter<Double> maxOutputParameter = new Parameter<>();
+	public Parameter<Double> minOutputParameter = new Parameter<>();
+	public Parameter<Double> errorParameter = new Parameter<>();
+	public Parameter<Boolean> isRateParameter = new Parameter<>();
 
-	private double P;
-	private double I;
-	private double D;
-	private double totalError;
-	private double maxOutput;
-	private double minOutput;
-	private double error;
 	private double previousError;
-	boolean isRate;
+	private double totalError;
+
 	
-	public OutputOnlyDataProvider<Double> pProvider = new OutputOnlyDataProvider<Double>()
-	{
-		@Override
-		protected Double calculateData(Void unused)
-		{
-			return P;
-		}
-		
-	};
 	@Override
 	protected Double calculateData(Double inputData)
 	{
-		Double setPoint = setPointProvider.getData();
-		error = setPoint - inputData;
+		
+		double setPoint = setPointParameter.getParameter();
+		
+		double P = PParameter.getParameter();
+		double I = IParameter.getParameter();
+		double D = DParameter.getParameter();
+		
+		double maxOutput = maxOutputParameter.getParameter();
+		double minOutput = minOutputParameter.getParameter();
+		
+		boolean isRate = isRateParameter.getParameter();
+		
+		
+		double error = setPoint - inputData;
+		errorParameter.setParameter(error);
+		
 		double result = 0;
 		// The following code was adapted from WPILib's PIDController class.
 		if (isRate)
@@ -90,5 +98,10 @@ public class PIDControl extends DataProvider<Double, Double>
 		return result;
 
 	}
-
+	public PIDControl(ParameterSetup<PIDControl> setupRoutine)
+	{
+		super();
+		
+		setupRoutine.setup(this);
+	}
 }

@@ -1,45 +1,54 @@
 package org.usfirst.frc.team2635.data;
 
-public class Parameter<Type>
+public class Parameter<Type> 
 {
-    Type parameter;
-
-	OutputOnlyDataProvider<Type> getter = new OutputOnlyDataProvider<Type>()
+	Type parameter;
+	OutputOnlyDataProvider<Type> parameterProvider = new OutputOnlyDataProvider<Type>()
 	{
 
 		@Override
 		protected Type calculateData(Void unused)
 		{
-			return parameter;
+			return parameterGetter.getData();
 		}
 		
 	};
-	DataProvider<Type, Type> setter = new DataProvider<Type, Type>()
-	{
-
-		@Override
-		protected Type calculateData(Type inputData)
-		{
-			parameter = inputData;
-			return inputData;
-		}
-	};
+	DataProvider<?, Type> parameterGetter;
 	
 	public <DataProviderOutputType> DataProvider<Type, DataProviderOutputType> providesTo(DataProvider<Type, DataProviderOutputType> dataProvider)
 	{
-		dataProvider.setDataProvider(getter);
+		dataProvider.setDataProvider(parameterProvider);
 		return dataProvider;
 	}
-	public void isSetBy(DataProvider<?, Type> dataProvider)
+	
+	
+	
+	/**
+	 * Set the parameter to be a constant value. 
+	 * @param constant The value that will be provided by parameter.
+	 */
+	public void setParameter(Type constant)
 	{
-		setter.inputProvider = dataProvider;
+		parameterGetter = new ConstantProvider<Type>(constant);
 	}
-	public void isSetConstant(Type constant)
+	/**
+	 * Set the parameter to be calculated by a chain.
+	 * @param dataProvider The provider at the bottom of the chain.
+	 */
+	public void setParameter(DataProvider<?, Type> dataProvider)
 	{
-		setter.inputProvider = new ConstantProvider<Type>(constant);	
+		parameterGetter = dataProvider;
 	}
+	/**
+	 * Get the parameter through the parameterProvider.
+	 * @return
+	 */
 	public Type getParameter()
 	{
-		return getter.getData();
+		return parameterProvider.getData();
 	}
+
+
+
+	
 }

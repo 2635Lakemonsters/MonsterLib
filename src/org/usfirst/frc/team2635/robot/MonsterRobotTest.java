@@ -9,7 +9,6 @@ import org.usfirst.frc.team2635.data.implementation.MousePositionProvider;
 import org.usfirst.frc.team2635.data.implementation.PointX;
 import org.usfirst.frc.team2635.data.implementation.PointY;
 import org.usfirst.frc.team2635.data.implementation.SystemPrint;
-import org.usfirst.frc.team2635.data.implementation.math.AddConstant;
 
 public class MonsterRobotTest
 {
@@ -26,7 +25,7 @@ public class MonsterRobotTest
 			{
 				
 						
-				DataProvider<Double, Double> dummyJoystick2 = 
+				DataProvider<Point, Double> dummyJoystick2 = 
 						new MousePositionProvider()
 						.providesTo(new PointX());
 				
@@ -36,9 +35,7 @@ public class MonsterRobotTest
 				DataProvider<Double, Double> dummyMotor2 = 
 						new SystemPrint<Double>();
 				
-				dummyJoystick1.providesToTop(dummyMotor1);
 				dummyJoystick2.providesToTop(dummyMotor2);
-				robotEnvironment.addTeleopChain(dummyMotor1);
 				robotEnvironment.addTeleopChain(dummyMotor2);
 			}
 		};

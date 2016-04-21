@@ -1,19 +1,19 @@
 package org.usfirst.frc.team2635.robot;
 
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
-import org.usfirst.frc.team2635.robot.FRCMetadata.Mode;
+import org.usfirst.frc.team2635.robot.FRC.Mode;
 
 import edu.wpi.first.wpilibj.DriverStation;
 
-public class DriverstationMetadata extends OutputOnlyDataProvider<FRCMetadata>
+public class DriverstationMetadata extends OutputOnlyDataProvider<FRC>
 {
 
 	DriverStation ds = DriverStation.getInstance();
 
 	@Override
-	protected FRCMetadata calculateData(Void unused)
+	protected FRC calculateData(Void unused)
 	{
-		FRCMetadata data = new FRCMetadata();
+		FRC data = new FRC();
 		boolean isAuto = ds.isAutonomous();
 		boolean isTele = ds.isOperatorControl();
 		boolean isTest = ds.isTest();
