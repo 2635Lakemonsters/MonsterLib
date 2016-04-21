@@ -3,7 +3,7 @@ package org.usfirst.frc.team2635.data.implementation;
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
 import org.usfirst.frc.team2635.data.Parameter;
-import org.usfirst.frc.team2635.data.ParameterSetup;
+import org.usfirst.frc.team2635.data.DataProviderSetup;
 
 import edu.wpi.first.wpilibj.PIDController;
 
@@ -97,7 +97,7 @@ public class PIDControl extends DataProvider<Double, Double>
 		return result;
 
 	}
-	public PIDControl(ParameterSetup<PIDControl> setupRoutine)
+	public PIDControl(DataProviderSetup<PIDControl> setupRoutine)
 	{
 		super();
 		

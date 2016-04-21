@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import org.usfirst.frc.team2635.data.ConstantProvider;
 import org.usfirst.frc.team2635.data.DataProvider;
+import org.usfirst.frc.team2635.data.LastOutputtedProvider;
 import org.usfirst.frc.team2635.data.implementation.MousePositionProvider;
 import org.usfirst.frc.team2635.data.implementation.PointY;
 import org.usfirst.frc.team2635.data.implementation.SystemPrint;
@@ -25,11 +26,12 @@ public class MathTestMain
 							m.constantParameter.setParameter(mouseChain);
 							m.operationParameter.setParameter(Operation.Add);
 						})
-				).providesTo(new SystemPrint<Double>((SystemPrint<Double> s) ->
-				{
-					s.format.setParameter("Mouse position plus 3: %s%n");
-				})
-						);
+				).providesTo(
+						new SystemPrint<Double>((SystemPrint<Double> s) ->
+						{
+							s.format.setParameter("Mouse position plus 3: %s%n");
+						})
+				);
 		while(true)
 		{
 			mainChain.getData();

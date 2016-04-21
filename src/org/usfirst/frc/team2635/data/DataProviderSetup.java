@@ -7,7 +7,7 @@ package org.usfirst.frc.team2635.data;
  *
  * @param <DataProviderType> The type of the DataProvider that needs to be initialized.
  */
-public interface ParameterSetup<DataProviderType> 
+public interface DataProviderSetup<DataProviderType> 
 {
 	/**
 	 * Perform setup operations on the Parameters inside the DataProvider.

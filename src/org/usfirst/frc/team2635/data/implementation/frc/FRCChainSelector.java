@@ -5,10 +5,11 @@ import java.util.List;
 import java.util.Queue;
 
 import org.usfirst.frc.team2635.data.DataProvider;
+import org.usfirst.frc.team2635.data.DataProviderSetup;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
 
 @SuppressWarnings("rawtypes")//We don't care about what type the dataprovider is.
-public class FRCChainChooser extends DataProvider<FRC.Mode, DataProvider[]>
+public class FRCChainSelector extends DataProvider<FRC.Mode, DataProvider[]>
 {
 	
 	ArrayList<DataProvider> autonomous;
@@ -32,12 +33,22 @@ public class FRCChainChooser extends DataProvider<FRC.Mode, DataProvider[]>
 		test.add(chain);
 	}
 
-	public FRCChainChooser()
+	private void _FRCChainSelector()
 	{
 		autonomous = new ArrayList<>();
 		teleop = new ArrayList<>();
 		disabled = new ArrayList<>();
 		test = new ArrayList<>();
+	
+	}
+	public FRCChainSelector()
+	{
+		_FRCChainSelector();
+	}
+	public FRCChainSelector(DataProviderSetup<FRCChainSelector> s)
+	{
+		_FRCChainSelector();
+		s.setup(this);
 	}
 	
 	@Override
@@ -59,4 +70,5 @@ public class FRCChainChooser extends DataProvider<FRC.Mode, DataProvider[]>
 		}
 		return null;
 	}
+	
 }

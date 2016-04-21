@@ -2,7 +2,7 @@ package org.usfirst.frc.team2635.data.implementation.math;
 
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.Parameter;
-import org.usfirst.frc.team2635.data.ParameterSetup;
+import org.usfirst.frc.team2635.data.DataProviderSetup;
 
 public class MathOperation extends DataProvider<Double, Double>
 {
@@ -60,7 +60,7 @@ public class MathOperation extends DataProvider<Double, Double>
 		
 		return _calculateData(inputData);
 	}
-	public MathOperation(ParameterSetup<MathOperation> parameterSetup)
+	public MathOperation(DataProviderSetup<MathOperation> parameterSetup)
 	{
 		super();
 		
