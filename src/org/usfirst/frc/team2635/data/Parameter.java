@@ -33,7 +33,7 @@ public class Parameter<Type>
 	 * Set the parameter to be a constant value. 
 	 * @param constant The value that will be provided by parameter.
 	 */
-	public void setParameter(Type constant)
+	public void set(Type constant)
 	{
 		parameterIsConstant = true;
 		parameterGetter = new ConstantProvider<Type>(constant);
@@ -42,7 +42,7 @@ public class Parameter<Type>
 	 * Set the parameter to be calculated by a chain.
 	 * @param dataProvider The provider at the bottom of the chain.
 	 */
-	public void setParameter(DataProvider<?, Type> dataProvider)
+	public void set(DataProvider<?, Type> dataProvider)
 	{
 		parameterIsConstant = false;
 		parameterGetter = dataProvider;
@@ -51,12 +51,18 @@ public class Parameter<Type>
 	 * Get the parameter through the parameterProvider.
 	 * @return
 	 */
-	public Type getParameter()
+	public Type get()
 	{
 		return parameterProvider.getData();
 	}
-
-
+	public Parameter()
+	{
+		super();
+	}
+	public Parameter(Type defaultValue)
+	{
+		set(defaultValue);
+	}
 
 	
 }

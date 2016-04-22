@@ -2,7 +2,7 @@ package org.usfirst.frc.team2635.data.implementation.math;
 
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.Parameter;
-import org.usfirst.frc.team2635.data.DataProviderSetup;
+import org.usfirst.frc.team2635.data.UserSetup;
 
 public class MathOperation extends DataProvider<Double, Double>
 {
@@ -28,16 +28,20 @@ public class MathOperation extends DataProvider<Double, Double>
 		 * Raise inputData to a constant
 		 */
 		Power,
+		/**
+		 * Negate inputData.
+		 */
+		Negate
 	
 	}
 	public Parameter<Operation> operationParameter = new Parameter<>(); 
-	public Parameter<Double> constantParameter = new Parameter<>();
+	public Parameter<Double> constantParameter = new Parameter<>(0.0);
 
 	
 	private Double _calculateData(Double inputData)
 	{
-		double constant = constantParameter.getParameter();
-		switch(operationParameter.getParameter())
+		double constant = constantParameter.get();
+		switch(operationParameter.get())
 		{
 		case Add:
 			return inputData + constant;
@@ -49,6 +53,8 @@ public class MathOperation extends DataProvider<Double, Double>
 			return Math.pow(inputData, constant);
 		case Subtract:
 			return inputData - constant;
+		case Negate:
+			return -inputData;
 		default:
 			return null;
 		
@@ -60,7 +66,7 @@ public class MathOperation extends DataProvider<Double, Double>
 		
 		return _calculateData(inputData);
 	}
-	public MathOperation(DataProviderSetup<MathOperation> parameterSetup)
+	public MathOperation(UserSetup<MathOperation> parameterSetup)
 	{
 		super();
 		

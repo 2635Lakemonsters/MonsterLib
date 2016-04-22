@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Queue;
 
 import org.usfirst.frc.team2635.data.DataProvider;
-import org.usfirst.frc.team2635.data.DataProviderSetup;
+import org.usfirst.frc.team2635.data.UserSetup;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
 
 @SuppressWarnings("rawtypes")//We don't care about what type the dataprovider is.
@@ -45,7 +45,7 @@ public class FRCChainSelector extends DataProvider<FRC.Mode, DataProvider[]>
 	{
 		_FRCChainSelector();
 	}
-	public FRCChainSelector(DataProviderSetup<FRCChainSelector> s)
+	public FRCChainSelector(UserSetup<FRCChainSelector> s)
 	{
 		_FRCChainSelector();
 		s.setup(this);

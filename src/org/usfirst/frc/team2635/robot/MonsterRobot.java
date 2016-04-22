@@ -2,26 +2,24 @@ package org.usfirst.frc.team2635.robot;
 
 import org.usfirst.frc.team2635.data.ConstantProvider;
 import org.usfirst.frc.team2635.data.DataProvider;
-import org.usfirst.frc.team2635.data.DataProviderSetup;
+import org.usfirst.frc.team2635.data.UserSetup;
 import org.usfirst.frc.team2635.data.implementation.DataProviderRunMultiple;
 import org.usfirst.frc.team2635.data.implementation.frc.FRCChainSelector;
+
+import edu.wpi.first.wpilibj.RobotBase;
+
 import org.usfirst.frc.team2635.data.implementation.frc.FRC.Mode;
 
-public abstract class MonsterRobot //extends RobotBase
+
+public abstract class MonsterRobot extends RobotRoutine
 {
-	DataProviderSetup<FRCChainSelector> setup;
-	public abstract void initEnvironment(FRCChainSelector robotEnvironment);
+	FRCChainChooser 
+	public abstract void initEnvironment();
 	DataProviderThread mainThread;
-	//@Override
-	public void startCompetition()
+	@Override
+	public void runRoutine()
 	{
-		robotEnvironment
-		DataProvider<DataProvider[],DataProvider[]> mainChain = 
-				
-				.providesTo(new DataProviderRunMultiple());
 		
-		mainThread = new DataProviderThread(mainChain);
-		mainThread.start();
 	}
 
 }

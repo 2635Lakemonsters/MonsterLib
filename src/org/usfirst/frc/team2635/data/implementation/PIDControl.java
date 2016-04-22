@@ -3,7 +3,7 @@ package org.usfirst.frc.team2635.data.implementation;
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.OutputOnlyDataProvider;
 import org.usfirst.frc.team2635.data.Parameter;
-import org.usfirst.frc.team2635.data.DataProviderSetup;
+import org.usfirst.frc.team2635.data.UserSetup;
 
 import edu.wpi.first.wpilibj.PIDController;
 
@@ -25,20 +25,20 @@ public class PIDControl extends DataProvider<Double, Double>
 	@Override
 	protected Double calculateData(Double inputData)
 	{
-		double setPoint = setPointParameter.getParameter();
+		double setPoint = setPointParameter.get();
 		
-		double P = PParameter.getParameter();
-		double I = IParameter.getParameter();
-		double D = DParameter.getParameter();
+		double P = PParameter.get();
+		double I = IParameter.get();
+		double D = DParameter.get();
 		
-		double maxOutput = maxOutputParameter.getParameter();
-		double minOutput = minOutputParameter.getParameter();
+		double maxOutput = maxOutputParameter.get();
+		double minOutput = minOutputParameter.get();
 		
-		boolean isRate = isRateParameter.getParameter();
+		boolean isRate = isRateParameter.get();
 		
 		
 		double error = setPoint - inputData;
-		errorParameter.setParameter(error);
+		errorParameter.set(error);
 		
 		double result = 0;
 		// The following code was adapted from WPILib's PIDController class.
@@ -97,7 +97,7 @@ public class PIDControl extends DataProvider<Double, Double>
 		return result;
 
 	}
-	public PIDControl(DataProviderSetup<PIDControl> setupRoutine)
+	public PIDControl(UserSetup<PIDControl> setupRoutine)
 	{
 		super();
 		

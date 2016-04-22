@@ -2,7 +2,7 @@ package org.usfirst.frc.team2635.data.implementation.math;
 
 import org.usfirst.frc.team2635.data.DataProvider;
 import org.usfirst.frc.team2635.data.Parameter;
-import org.usfirst.frc.team2635.data.DataProviderSetup;
+import org.usfirst.frc.team2635.data.UserSetup;
 
 public class ValueWithinRange extends DataProvider<Double, Boolean>
 {
@@ -11,13 +11,13 @@ public class ValueWithinRange extends DataProvider<Double, Boolean>
 	@Override
 	protected Boolean calculateData(Double inputData)
 	{
-		double lowerBound = lowerBoundParameter.getParameter();
-		double upperBound = upperBoundParameter.getParameter();
+		double lowerBound = lowerBoundParameter.get();
+		double upperBound = upperBoundParameter.get();
 		
 		return inputData >= lowerBound && inputData <= upperBound;
 		
 	}
-	public ValueWithinRange(DataProviderSetup<ValueWithinRange> s)
+	public ValueWithinRange(UserSetup<ValueWithinRange> s)
 	{
 		s.setup(this);
 	}

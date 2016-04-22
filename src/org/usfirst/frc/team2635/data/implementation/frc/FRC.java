@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2635.data.implementation.frc;
 
 import org.usfirst.frc.team2635.data.Parameter;
-import org.usfirst.frc.team2635.data.DataProviderSetup;
+import org.usfirst.frc.team2635.data.UserSetup;
 
 import edu.wpi.first.wpilibj.DriverStation;
 

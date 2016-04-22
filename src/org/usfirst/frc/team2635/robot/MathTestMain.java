@@ -23,13 +23,13 @@ public class MathTestMain
 				(
 						new MathOperation((MathOperation m) ->
 						{ 
-							m.constantParameter.setParameter(mouseChain);
-							m.operationParameter.setParameter(Operation.Add);
+							m.constantParameter.set(mouseChain);
+							m.operationParameter.set(Operation.Add);
 						})
 				).providesTo(
 						new SystemPrint<Double>((SystemPrint<Double> s) ->
 						{
-							s.format.setParameter("Mouse position plus 3: %s%n");
+							s.format.set("Mouse position plus 3: %s%n");
 						})
 				);
 		while(true)
