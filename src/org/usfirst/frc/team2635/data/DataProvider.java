@@ -62,7 +62,6 @@ public abstract class DataProvider<InputType, OutputType>
 		dataProvider.setDataProvider(this);
 		return dataProvider;
 	}
-	public <DataProviderOutputType> DataProvider<OutputType, DataProviderOutputType>  providesSelfTo(DataProvider<OutputType, DataProviderOutputType> dataProvider)
 	/**
 	 * Signifies that the providing DataProvider provides to dataProvider as a top input. This has the effect of 
 	 * removing dataProvider's OutputOnlyDataProvider and replacing it with the bottom of the providing DataProvider's chain.

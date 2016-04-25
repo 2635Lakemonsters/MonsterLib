@@ -35,7 +35,6 @@ public class MathTestMain
 		while(true)
 		{
 			mainChain.getData();
-			outputtedData.getData();
 		}
 
 	}

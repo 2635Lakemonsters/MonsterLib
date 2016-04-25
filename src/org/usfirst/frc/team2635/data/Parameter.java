@@ -47,6 +47,10 @@ public class Parameter<Type>
 		parameterIsConstant = false;
 		parameterGetter = dataProvider;
 	}
+	public OutputOnlyDataProvider<Type> asProvider()
+	{
+		return parameterProvider;
+	}
 	/**
 	 * Get the parameter through the parameterProvider.
 	 * @return

@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.can.CANJNI;
 import edu.wpi.first.wpilibj.hal.CanTalonJNI;
 
-public class CANTalonSetValue extends DataProvider<Double, Double>
+public class CANTalonValueSetter extends DataProvider<Double, Double>
 {
 	public Parameter<Integer> channelParameter = new Parameter<>();
 	public Parameter<TalonControlMode> modeParameter = new Parameter<>(TalonControlMode.PercentVbus); 
@@ -57,7 +57,7 @@ public class CANTalonSetValue extends DataProvider<Double, Double>
 			
 		}
 	}
-	public CANTalonSetValue(UserSetup<CANTalonSetValue> s)
+	public CANTalonValueSetter(UserSetup<CANTalonValueSetter> s)
 	{
 		s.setup(this);
 		handle.set(CanTalonJNI.new_CanTalonSRX(channelParameter.get()));

@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.DriverStation;
 public class JoystickButton extends OutputOnlyDataProvider<Boolean>
 {
 	DriverStation ds = DriverStation.getInstance();
-	public Parameter<Integer> stickParameter = new Parameter<>();
+	public Parameter<Integer> channelParameter = new Parameter<>();
 	public Parameter<Integer> buttonParameter = new Parameter<>();
 	@Override
 	protected Boolean calculateData(Void unused)
 	{
-		int stick = stickParameter.get();
+		int stick = channelParameter.get();
 		int button = buttonParameter.get();
 		
 		
