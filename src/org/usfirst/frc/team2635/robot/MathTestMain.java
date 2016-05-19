@@ -17,7 +17,7 @@ public class MathTestMain
 	public static void main(String[] args)
 	{
 		DataProvider<Point, Double> mouseChain = new MousePositionProvider().providesTo(new PointY());
-		DataProvider<Double, Double> outputtedData = new SystemPrint<Double>();
+		
 		DataProvider<Double, Double> mainChain = new ConstantProvider<Double>(3.0)
 				.providesTo
 				(
