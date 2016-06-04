@@ -20,6 +20,11 @@ public class Parameter<Type>
 		parameterProvider.providesTo(dataProvider);
 		return dataProvider;
 	}
+	public <DataProviderInputType> DataProvider<?, Type> isProvidedToBy(DataProvider<DataProviderInputType, Type> dataProvider)
+	{
+		parameterGetter = dataProvider;
+		return parameterGetter;
+	}
 	
 	/**
 	 * 

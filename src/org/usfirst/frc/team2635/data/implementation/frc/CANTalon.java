@@ -18,13 +18,7 @@ public interface CANTalon
 		public Parameter<Double> IParameter = new Parameter<>(0.0);
 		public Parameter<Double> DParameter = new Parameter<>(0.0);
 	}
-	class CANTalonEncoderModel
-	{
-		public Parameter<Integer> channelParameter = new Parameter<>();
-		public Parameter<FeedbackDevice> feedbackDevice;
-	}
-	DataProvider<Double, Double> setCANTalon(UserSetup<CANTalonModel> setup);
-	OutputOnlyDataProvider<Double> CANTalonEncoderPosition(UserSetup<CANTalonEncoderModel> setup);
-	OutputOnlyDataProvider<Double> CANTalonEncoderVelocity(UserSetup<CANTalonEncoderModel> setup);
+
+	public DataProvider<Double, Double> setCanTalon(CANTalonModel parameters);
 	
 }
